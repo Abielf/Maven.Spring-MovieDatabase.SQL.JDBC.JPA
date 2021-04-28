@@ -97,10 +97,5 @@ public class HomeService implements DAO<Home> {
 /*
 Add a person to a home
 Remove a list of homes from the database
-Generate a list of people that live in a home
-
-
-Remove a home from the database
 Find a home by address
-Update an existing 'Home' in the database
 */

@@ -40,6 +40,9 @@ public class PersonController {
         return personService.firstNameFrequencies();
     }
 
+    @GetMapping(path="byhomes/{id}")
+    public List<Person> getPeopleByResidence(@PathVariable int id){return personService.listByHome(id);}
+
 
     @PostMapping
     public void addPerson(@RequestBody Person p){

@@ -44,6 +44,11 @@ public class PersonService implements DAO<Person> {
         return jdbcTemplate.query(sql,rowMapper);
     }
 
+    public List<Person> listByHome(int homeID) {
+        String sql = "SELECT ID, FIRST_NAME, LAST_NAME, MOBILE, BIRTHDAY, HOME_ID FROM PERSON WHERE HOME_ID=?";
+        return jdbcTemplate.query(sql,new Object[]{homeID},rowMapper);
+    }
+
 
     public void create(Person person) {
         String sql="INSERT INTO PERSON(FIRST_NAME, LAST_NAME, MOBILE, BIRTHDAY, HOME_ID) VALUES(?,?,?,?,?)";
@@ -90,6 +95,8 @@ public class PersonService implements DAO<Person> {
         });
         return returnThis;
     }
+
+
 
     public void delete(int id) {
         jdbcTemplate.update("DELETE FROM PERSON WHERE ID=?",id);
